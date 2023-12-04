@@ -1,8 +1,8 @@
-package cetys.edu.bathrat.dao.repositories;
+package com.cetys.rating.DAO.Repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import cetys.edu.bathrat.DAO.entidades.RestroomEntity;
+import com.cetys.rating.DAO.Entities.RestroomEntity;
 
 @Repository
 public interface RestroomRepository extends JpaRepository<RestroomEntity, Integer> {

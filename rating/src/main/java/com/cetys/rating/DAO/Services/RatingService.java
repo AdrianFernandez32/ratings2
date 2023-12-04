@@ -1,4 +1,4 @@
-package cetys.edu.bathrat.DAO.services;
+package com.cetys.rating.DAO.Services;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import cetys.edu.bathrat.DAO.entidades.RatingEntity;
-import cetys.edu.bathrat.DAO.repositories.RatingRepository;
+import com.cetys.rating.DAO.Entities.RatingEntity;
+import com.cetys.rating.DAO.Repositories.RatingRepository;
 
 @Service
 public class RatingService {

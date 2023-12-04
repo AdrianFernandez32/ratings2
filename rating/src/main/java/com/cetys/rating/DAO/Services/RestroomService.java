@@ -1,12 +1,12 @@
-package cetys.edu.bathrat.DAO.services;
+package com.cetys.rating.DAO.Services;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import cetys.edu.bathrat.DAO.entidades.RestroomEntity;
-import cetys.edu.bathrat.DAO.repositories.RestroomRepository;
+import com.cetys.rating.DAO.Entities.RestroomEntity;
+import com.cetys.rating.DAO.Repositories.RestroomRepository;
 
 public class RestroomService {
     private final RestroomRepository restroomRepository;
