@@ -1,5 +1,7 @@
 package com.cetys.rating.DAO.Entities;
 
+import java.sql.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,28 +14,29 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "rating", schema = "public")
 public class RatingEntity {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "rating_id")
     private int ratingId;
 
     @Column(name = "privacidad")
-    private String privacidad;
+    private int privacidad;
 
     @Column(name = "limpieza")
-    private String limpieza;
+    private int limpieza;
 
     @Column(name = "comodidad")
-    private String comodidad;
+    private int comodidad;
 
     @Column(name = "espacio")
-    private String espacio;
+    private int espacio;
 
     @Column(name = "fecha")
-    private String fecha;
+    private Date fecha;
 
     @ManyToOne
-    @JoinColumn(name = "restroom_id")
+    @JoinColumn(name = "restroom")
     private RestroomEntity restroom;
 
     // Getter para ratingId
@@ -47,52 +50,52 @@ public class RatingEntity {
     }
 
     // Getter para privacidad
-    public String getPrivacidad() {
+    public int getPrivacidad() {
         return privacidad;
     }
 
     // Setter para privacidad
-    public void setPrivacidad(String privacidad) {
+    public void setPrivacidad(int privacidad) {
         this.privacidad = privacidad;
     }
 
     // Getter para limpieza
-    public String getLimpieza() {
+    public int getLimpieza() {
         return limpieza;
     }
 
     // Setter para limpieza
-    public void setLimpieza(String limpieza) {
+    public void setLimpieza(int limpieza) {
         this.limpieza = limpieza;
     }
 
     // Getter para comodidad
-    public String getComodidad() {
+    public int getComodidad() {
         return comodidad;
     }
 
     // Setter para comodidad
-    public void setComodidad(String comodidad) {
+    public void setComodidad(int comodidad) {
         this.comodidad = comodidad;
     }
 
     // Getter para espacio
-    public String getEspacio() {
+    public int getEspacio() {
         return espacio;
     }
 
     // Setter para espacio
-    public void setEspacio(String espacio) {
+    public void setEspacio(int espacio) {
         this.espacio = espacio;
     }
 
     // Getter para fecha
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
     // Setter para fecha
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
