@@ -35,13 +35,9 @@ public class ApiControllers {
         this.restroomService = restroomService;
     }
 
-    /*@GetMapping("/restrooms")
+    @GetMapping("/restrooms")
     public ResponseEntity<List<RestroomEntity>> getAllRestrooms() {
         return ResponseEntity.ok(restroomService.getAllRestrooms());
-    }*/
-    @GetMapping("/restrooms")
-    public List<RestroomEntity> getAllRestrooms() {
-        return restroomService.getAllRestrooms();
     }
 
     @GetMapping("/restrooms/{id}")
@@ -52,19 +48,19 @@ public class ApiControllers {
     }
 
     @GetMapping("/restrooms/avg")
-    public ResponseEntity<Map<RestroomEntity, Map<String, Double>>> getAverageRatingPerRestroom() {
-        Map<RestroomEntity, Map<String, Double>> averageRatings = restroomService.getAverageRatingPerRestroom();
+    public ResponseEntity<Map<String, Map<String, Double>>> getAverageRatingPerRestroom() {
+        Map<String, Map<String, Double>> averageRatings = restroomService.getAverageRatingPerRestroom();
         
         if (averageRatings.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-    
+
         return ResponseEntity.ok(averageRatings);
     }
 
     @GetMapping("/restrooms/avg/{id}")
-    public ResponseEntity<Map<String, Double>> getAverageRatingsById(@PathVariable int restroomId) {
-        Map<String, Double> averageRatings = restroomService.getAverageRatingsById(restroomId);
+    public ResponseEntity<Map<String, Double>> getAverageRatingsById(@PathVariable int id) {
+        Map<String, Double> averageRatings = restroomService.getAverageRatingsById(id);
 
         if (averageRatings == null) {
             // Manejar el caso en el que no hay calificaciones para el baño especificado

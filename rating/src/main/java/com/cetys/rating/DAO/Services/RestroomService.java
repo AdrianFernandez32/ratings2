@@ -64,14 +64,17 @@ public class RestroomService {
         restroomRepository.deleteById(restroomId);
     }
 
-    public Map<RestroomEntity, Map<String, Double>> getAverageRatingPerRestroom() {
+    public Map<String, Map<String, Double>> getAverageRatingPerRestroom() {
         List<RatingEntity> allRatings = ratingRepository.findAll();
     
-        Map<RestroomEntity, List<RatingEntity>> ratingsByRestroom = allRatings.stream()
-                .collect(Collectors.groupingBy(RatingEntity::getRestroom));
+        Map<String, List<RatingEntity>> ratingsByRestroom = allRatings.stream()
+            .collect(Collectors.groupingBy(rating -> rating.getRestroom().getUbicacion()));
     
-        return ratingsByRestroom.entrySet().stream()
-                .collect(Collectors.toMap(Map.Entry::getKey, entry -> calculateAverageRatings(entry.getValue())));
+            return ratingsByRestroom.entrySet().stream()
+            .collect(Collectors.toMap(
+                    Map.Entry::getKey,
+                    entry -> calculateAverageRatings(entry.getValue())
+            ));
     }
 
     public Map<String, Double> getAverageRatingsById(int restroomId) {
