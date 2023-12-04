@@ -75,7 +75,7 @@ public class RestroomService {
     }
 
     public Map<String, Double> getAverageRatingsById(int restroomId) {
-        List<RatingEntity> ratingsForRestroom = ratingRepository.getRatingById(restroomId);
+        List<RatingEntity> ratingsForRestroom = ratingRepository.findByRatingId(restroomId);
 
         if (ratingsForRestroom.isEmpty()) {
             // Manejar el caso en el que no hay calificaciones para el baño especificado

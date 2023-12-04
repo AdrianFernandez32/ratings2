@@ -35,9 +35,13 @@ public class ApiControllers {
         this.restroomService = restroomService;
     }
 
-    @GetMapping("/restrooms")
+    /*@GetMapping("/restrooms")
     public ResponseEntity<List<RestroomEntity>> getAllRestrooms() {
         return ResponseEntity.ok(restroomService.getAllRestrooms());
+    }*/
+    @GetMapping("/restrooms")
+    public List<RestroomEntity> getAllRestrooms() {
+        return restroomService.getAllRestrooms();
     }
 
     @GetMapping("/restrooms/{id}")

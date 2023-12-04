@@ -8,5 +8,5 @@ import com.cetys.rating.DAO.Entities.RatingEntity;
 
 @Repository
 public interface RatingRepository extends JpaRepository<RatingEntity, Integer> {
-    List<RatingEntity> getRatingById(int ratingId);    
+    List<RatingEntity> findByRatingId(int ratingId);    
 }
