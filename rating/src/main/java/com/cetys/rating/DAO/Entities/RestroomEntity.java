@@ -1,4 +1,4 @@
-package com.cetys.rating.dao.entities;
+package com.cetys.rating.DAO.Entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

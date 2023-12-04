@@ -3,7 +3,6 @@ package com.cetys.rating.DAO.Services;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cetys.rating.DAO.Entities.RatingEntity;
