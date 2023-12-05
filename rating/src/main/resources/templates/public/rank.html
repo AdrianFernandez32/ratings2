@@ -6,7 +6,38 @@
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
     <title>Ranking</title>
 </head>
-<body>
-    
+<body class="bg-yellow-500 h-screen">
+
+    <div class="flex justify-between w-full h-1/6 items-center px-10">
+        <a class="bg-yellow-800 py-3 px-5 rounded-full text-white" href="http://127.0.0.1:5500/rating/src/main/resources/templates/public/index.html">
+            <span>Back</span>
+        </a>
+        <button class="bg-yellow-800 py-3 px-5 rounded-full text-white">
+            <span>Cetys Toilet Rating System</span>
+        </button>
+    </div>
+
+    <div class="h-5/6 flex justify-center items-center w-full">
+
+
+        <div class="w-2/3 h-full">
+            <div class="text-white w-full flex justify-center mb-10">
+                <span class="text-3xl">Rank</span>
+            </div>
+
+            <div class="h-3/4 bg-gray-200 w-full rounded-2xl p-10 overflow-scroll" id="all-baths">
+                
+
+
+            
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <script src="../../static/js/rank.js"></script>
 </body>
 </html>

@@ -37,7 +37,23 @@ const dummy2 = [
   ]
 
 
+  function handleToRank() {
 
+    // Construir la URL con el ID
+    const url = `http://127.0.0.1:5500/rating/src/main/resources/templates/public/rank.html`;  // Reemplaza "/ruta" con tu ruta base
+
+    // Navegar a la URL
+    window.location.href = url;
+    }
+
+  function handleClick(id) {
+
+    // Construir la URL con el ID
+    const url = `http://127.0.0.1:5500/rating/src/main/resources/templates/public/rate.html?id=${id}`;  // Reemplaza "/ruta" con tu ruta base
+
+    // Navegar a la URL
+    window.location.href = url;
+    }
 
   const url = 'http://localhost:8181/api/restrooms';
 
@@ -62,32 +78,20 @@ const dummy2 = [
       container.innerHTML = responseData.map(user => 
         `<div class="flex justify-between items-center px-2 py-2 bg-gray-400 rounded-full mb-5">
             <span class="boton-rate ml-6">${user.ubicacion}</span>
-            <button class="bg-green-500 px-10 py-2 text-green-800 rounded-full buttons transitions">
+            <button class="bg-green-500 px-10 py-2 text-green-800 rounded-full buttons transitions" onclick="handleClick(${user.restroomId})">
                 <span>Rate</span>
             </button>
         </div>`
       ).join('');
-    })
-    .catch(error => {
+    
+    }).catch(error => {
       console.error('Fetch error:', error);
     });
 
 
-function handleClick(event) {
-    // Obtener el ID desde el atributo data-id
-    const id = event.target.dataset.id;
 
-    // Construir la URL con el ID
-    const url = `/ruta/${id}`;  // Reemplaza "/ruta" con tu ruta base
-
-    // Navegar a la URL
-    window.location.href = url;
-    }
 
     // Asociar la función handleClick a los botones
-    const botones = document.querySelectorAll('.boton-rate');
-    botones.forEach(boton => {
-    boton.addEventListener('click', handleClick);
-    });
+
 
     
