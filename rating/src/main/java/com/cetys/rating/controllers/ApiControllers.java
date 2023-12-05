@@ -70,11 +70,23 @@ public class ApiControllers {
         return ResponseEntity.ok(averageRatings);
     }
 
-    @PostMapping("/create")
-    public ResponseEntity<String> createRating(@RequestBody RatingEntity newRating) {
+    @PostMapping("/create/{restroom_id}")
+    public ResponseEntity<String> createRating(@PathVariable("restroom_id") int restroomId, @RequestBody RatingEntity newRating) {
         try {
-            RatingEntity createdRating = ratingService.saveRating(newRating);
-            return ResponseEntity.status(HttpStatus.CREATED).body("Rating created with ID: " + createdRating.getRatingId());
+            // Obtener el RestroomEntity usando el restroom_id
+            Optional<RestroomEntity> restroom = restroomService.getRestroomById(restroomId);
+            if(restroom.isPresent()){
+                // Asignar el RestroomEntity al RatingEntity
+                newRating.setRestroom(restroom.get());
+        
+                // Guardar la calificación con la relación al baño
+                RatingEntity createdRating = ratingService.saveRating(newRating);
+                return ResponseEntity.status(HttpStatus.CREATED).body("Rating created with ID: " + createdRating.getRatingId());
+            }
+            else{
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Restroom not found");
+            }
+            
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error creating rating");
         }
